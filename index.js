@@ -164,11 +164,11 @@ async function run() {
       res.send(result);
     });
     app.get("/all-class", async (req, res) => {
-      const statusFilter = req.query.status; // Get the status filter from query parameter
-      let filter = {}; // Default filter to retrieve all classes
+      const statusFilter = req.query.status; 
+      let filter = {}; 
 
       if (statusFilter === "approved") {
-        filter = { status: "approved" }; // Set filter to retrieve approved classes only
+        filter = { status: "approved" }; 
       }
 
       try {
@@ -337,7 +337,7 @@ async function run() {
       res.send({ clientSecret: paymentIntent.client_secret });
     });
 
-    //payment api to save database ,remove classes ,enrolled added
+    
     app.post("/payments", async (req, res) => {
       const paymentInfo = req.body;
       console.log(paymentInfo);
@@ -395,7 +395,7 @@ async function run() {
       try {
         const payments = await paymentsCollection
           .find({ email: email })
-          .sort({ date: -1 }) // Sort by date in descending order
+          .sort({ date: -1 }) 
           .toArray();
         res.send(payments);
       } catch (error) {
